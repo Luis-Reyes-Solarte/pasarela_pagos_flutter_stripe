@@ -4,8 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:http/http.dart' as http;
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   Stripe.publishableKey = 'pk_test_51UNXGjC77OoEdkOo3sWd9sfXWpMiualLEcyCcp4YaKMcBGfqEn4JAtKMkwr1hmmTNvRQ6uNZwpP38xdtaNTwVnnX00lsEUOQDw';
+
+  await Stripe.instance.applySettings();
 
   runApp(const MyApp());
 }
